@@ -1,0 +1,29 @@
+@import "variable";
+
+.loading {
+  width: 80%;
+  position: relative;
+  $h: 10px;
+
+  .bar {
+    position: absolute;
+    color: greenyellow;
+    width: 100%;
+    height: $h;
+    top: 50%;
+    margin: -$h/2 $sectorD/2;
+    border-radius: $h / 2;
+    border: 1px solid $borderColor;
+    box-shadow: 0 0 $h*2 currentColor inset;
+    overflow: hidden;
+
+    .empty {
+      position: absolute;
+      height: 100%;
+      border-radius: 2px;
+      right: 0;
+      background-color: currentColor;
+    }
+  }
+
+}

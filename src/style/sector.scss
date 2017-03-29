@@ -1,0 +1,44 @@
+@import "variable";
+
+$emptyColor: black;
+$d: $sectord;
+$D: $sectorD;
+$space: 2px;
+
+.sector {
+  position: relative;
+  box-shadow: 0 0 0 $space $borderColor;
+  margin: $space * 2;
+  font-size: $smFont;
+
+  &, .center, .s {
+    width: $D;
+    height: $D;
+    border-radius: 50%;
+  }
+  .center {
+    position: absolute;
+    width: $d;
+    height: $d;
+    background: $borderColor;
+    left: ($D - $d) / 2;
+    top: ($D - $d) / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .s {
+    position: absolute;
+    background: currentColor;
+    clip: rect(0, $D / 2, $D, 0);
+  }
+  .rotator {
+    transform: rotate(10deg);
+  }
+  .rhalf {
+    transform: rotate(180deg);
+  }
+  .lhalf {
+    background: $emptyColor;
+  }
+}

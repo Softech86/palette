@@ -1,0 +1,39 @@
+.cube {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  perspective-origin: center;
+}
+
+.box {
+  display: block;
+  position: relative;
+  transform-style: preserve-3d;
+
+  div {
+    position: absolute;
+    &:before {
+      content: "";
+      position: absolute;
+      width: calc(100% - 60px);
+      height: calc(100% - 60px);
+      background-color: currentColor;
+      top: 20px;
+      left: 20px;
+      opacity: .3;
+    }
+  }
+  .xz {
+    transform: rotateX(90deg);
+    transform-origin: top left;
+  }
+  .xy {
+  }
+  .yz {
+    transform: rotateY(-90deg);
+    transform-origin: center left;
+  }
+}
+
