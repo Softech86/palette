@@ -1,5 +1,10 @@
 <template>
-  <div class="sector" :style="sectorStyle" @mousedown="mouseDown" @mouseup="mouseUp" @mousemove="mouseMove">
+  <div class="sector" :style="sectorStyle"
+       @mousedown="mouseDown"
+       @mouseup="mouseUp"
+       @mousemove="mouseMove"
+       @mouseleave="mouseLeave"
+  >
     <div class="s rotator" :style="`transform: rotate(${deg}deg)`"></div>
     <div class="s lhalf" v-if="deg < 180" :style="{background: color.empty}"></div>
     <div class="s rhalf" v-if="deg >= 180"></div>
@@ -53,9 +58,12 @@
       mouseUp(e) {
         this.$emit('mouseup', e);
       },
-      mouseMove(e) {
-          this.$emit('mousemove', e)
-      }
+        mouseMove(e) {
+            this.$emit('mousemove', e)
+        },
+        mouseLeave(e) {
+            this.$emit('mouseleave', e)
+        }
     }
   }
 </script>

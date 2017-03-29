@@ -4,7 +4,7 @@
 
     <input type="number" v-model="deg">
     <sector :value="parseInt(deg)" :max="256"></sector>
-    <loading :value="parseInt(deg)" :max="256"></loading>
+    <loading v-model="deg" :max="256"></loading>
 
     <div>
       <input type="number" v-model="color.r" min="0" max="255">
