@@ -1,9 +1,20 @@
 $length: 50px;
 
-$smFont: 16px;
+$xsFont: 12px;
+$smFont: 18px;
 $mdFont: 24px;
+$lgFont: 40px;
 
-$sectord: 35px;
+$sectord: 36px;
 $sectorD: 50px;
 
-$borderColor: #ccc;
+$dark: #1e0b0b;
+$light: white;
+$borderColor: black;
+
+$borderWeightLight: 1px;
+$borderWeightNormal: 2px;
+$borderWeightBold: 1px;
+$borderRadius: 8px;
+
+$shadow: 0 0 10px 0;

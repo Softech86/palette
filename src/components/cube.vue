@@ -1,7 +1,7 @@
 <template>
   <div class="cube">
-    <p>This is a cube.</p>
-    <p>{{x}} {{y}} {{z}} {{xyStyle}} {{color}}</p>
+    <!--<p>This is a cube.</p>-->
+    <!--<p>{{x}} {{y}} {{z}} {{xyStyle}} {{color}}</p>-->
     <div class="box" :style="boxStyle">
       <div class="xz" :style="xzStyle"></div>
       <div class="xy" :style="xyStyle"></div>
@@ -43,7 +43,7 @@
           width: x + 'px',
           height: y + 'px',
           background: `rgba(${r}, ${g}, ${b}, 1)`,
-          color: `rgba(0, 0, ${b}, 1)`
+          color: `rgba(0, 0, ${parseInt(b / 4)}, 1)`
         }
       },
       xzStyle() {
@@ -52,7 +52,7 @@
           width: x + 'px',
           height: z + 'px',
           background: `rgba(${r}, ${g}, ${b}, 1)`,
-          color: `rgba(0, ${g}, 0, 1)`
+          color: `rgba(0, ${parseInt(g / 4)}, 0, 1)`
         }
       },
       yzStyle() {
@@ -61,7 +61,7 @@
           width: z + 'px',
           height: y + 'px',
           background: `rgba(${r}, ${g}, ${b}, 1)`,
-          color: `rgba(${r}, 0, 0, 1)`
+          color: `rgba(${parseInt(r / 4)}, 0, 0, 1)`
         }
       },
     }

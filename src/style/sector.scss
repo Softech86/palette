@@ -3,7 +3,7 @@
 $emptyColor: black;
 $d: $sectord;
 $D: $sectorD;
-$space: 2px;
+$space: $borderWeightLight;
 
 .sector {
   position: relative;

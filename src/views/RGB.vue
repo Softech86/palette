@@ -1,56 +1,103 @@
 <template>
-  <div class="hello">
-    <h1>Hi, there.</h1>
-    <div>
-      <input type="number" v-model="color.r" min="0" max="255">
-      <input type="number" v-model="color.g" min="0" max="255">
-      <input type="number" v-model="color.b" min="0" max="255">
+  <div class="rgb">
+    <div class="info">
+      <div class="text">
+        <div>
+          <span>R</span>
+          <div>{{color.r}}</div>
+        </div>
+        <div>
+          <span>G</span>
+          <div>{{color.g}}</div>
+        </div>
+        <div>
+          <span>B</span>
+          <div>{{color.b}}</div>
+        </div>
+      </div>
+      <div class="bar">
+        <loading v-model="color.r" :max="256" :color="loadingColor('r')"></loading>
+        <loading v-model="color.g" :max="256" :color="loadingColor('g')"></loading>
+        <loading v-model="color.b" :max="256" :color="loadingColor('b')"></loading>
+      </div>
     </div>
-    <cube
-      :x="x"
-      :y="y"
-      :z="z"
-      :rx="60"
-      :ry="0"
-      :rz="45"
-      :color="color"
-    ></cube>
+    <div class="display">
+      <cube
+              :x="x"
+              :y="y"
+              :z="z"
+              :rx="deg.rx"
+              :ry="deg.ry"
+              :rz="deg.rz"
+              :color="color"
+      ></cube>
+    </div>
   </div>
 </template>
 
+
 <script>
 import Cube from '../components/cube.vue'
+import Loading from '../components/loading.vue'
+import Bus from '../bus'
+
 export default {
-  name: 'hello',
-  components: {
-    Cube
-  },
-  computed: {
-    x() {
-      return this.color.g * .2 + this.color.b * .2 + 100;
+    name: 'rgb',
+    components: {
+        Cube,
+        Loading
     },
-    y() {
-      return this.color.r * .2 + this.color.b * .2 + 100;
+    computed: {
+        x() {
+            return this.color.g * .2 + this.color.b * .2 + 100;
+        },
+        y() {
+            return this.color.r * .2 + this.color.b * .2 + 100;
+        },
+        z() {
+            return this.color.g * .2 + this.color.r * .2 + 100;
+        },
+        mousePos() {
+            return Bus.mousePos;
+        },
+        deg() {
+            let center = {
+                x: this.mousePos.x - window.innerWidth / 2,
+                y: this.mousePos.y - window.innerHeight / 2
+            }
+            return {
+                rx: 60 - center.y / 20,
+                ry: 0,
+                rz: 45 - center.x / 20
+            }
+        }
     },
-    z() {
-      return this.color.g * .2 + this.color.r * .2 + 100;
-    }
-  },
-  data () {
-    return {
-      color: {
-        r: 0,
-        g: 0,
-        b: 0
-      },
-    }
-  }
+    data () {
+        return {
+            color: {
+                r: 160,
+                g: 128,
+                b: 128
+            },
+        }
+    },
+    methods: {
+        loadingColor(c) {
+            let color = {
+                r: '#d85b5b',
+                g: '#6cd35e',
+                b: '#5c85d6',
+            };
+            return {
+                main: color[c],
+                empty: '#2e1b1b'
+            }
+        },
+    },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1 {
-  color: #42b983;
-}
+<style rel="stylesheet/scss" lang="scss">
+  @import "../style/rgb";
 </style>

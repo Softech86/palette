@@ -9,37 +9,43 @@
       @mousemove="mouseMove"
       @mouseleave="mouseLeave"
 
-      :value="val" :max="max" :style="sectorStyle" :color="color"></sector>
+      :value="val" :max="max" :class="{pressed: sectorPressed}" :style="sectorStyle" :color="color"></sector>
   </div>
 </template>
 
 <script>
   import Sector from './sector.vue'
+  import Bus from '../bus'
+
+  function getOffsetLeft(n) {
+      let o = 0;
+      if (n.offsetLeft)
+          o += n.offsetLeft;
+      if (n.parentNode) {
+          o += getOffsetLeft(n.parentNode);
+      }
+      return o;
+  }
+
   export default {
     methods: {
         mouseDown(e) {
             this.sectorPressed = true;
-            this.pressStartPosition = e.x;
         },
         mouseUp(e) {
             this.sectorPressed = false;
-            this.pressStartPosition = 0;
         },
         mouseMove(e) {
             if (this.sectorPressed) {
-                if (e.screenX - this.mouseStartPosition > 1) {
-                    this.inc();
-                    this.mouseStartPosition = e.screenX;
-                }
-                if (e.screenX - this.mouseStartPosition < -1) {
-                    this.dec();
-                    this.mouseStartPosition = e.screenX;
-                }
+                let
+                    mouseRatio = (Bus.mousePos.x - getOffsetLeft(this.$el)) / this.$el.offsetWidth,
+                mouse2val = parseInt(mouseRatio * this.max);
+                console.log(mouse2val)
+                this.set(mouse2val)
             }
         },
         mouseLeave(e) {
             this.sectorPressed = false;
-            this.pressStartPosition = 0;
         },
 
         inc() {
@@ -52,6 +58,11 @@
                 this.$emit('input', Number(this.value) - 1);
             }
         },
+        set(v) {
+            if (v >= 0 && v < this.max) {
+                this.$emit('input', v);
+            }
+        }
     },
     name: 'loading',
     components: {
@@ -78,7 +89,6 @@
     data () {
       return {
         sectorPressed: false,
-        mouseStartPosition: 0,
       }
     },
     computed: {

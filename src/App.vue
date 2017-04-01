@@ -1,13 +1,41 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div id="app" @mousemove="mouseMove">
+    <tag-select></tag-select>
+    <transition name="slide-fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
+  import TagSelect from './components/tag-select.vue'
+  import Bus from './bus'
+
 export default {
-  name: 'app'
+  name: 'app',
+    components: {
+      TagSelect
+    },
+    methods: {
+        mouseMove(e) {
+            let mousePos = {
+                x: e.clientX,
+                y: e.clientY
+            };
+
+            Bus.$emit('mousePosition', mousePos);
+        }
+    },
+    watch: {
+//        '$route' (to, from) {
+//            const toDepth = to.path.split('/').length
+//            const fromDepth = from.path.split('/').length
+//            this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+//        }
+    }
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss"></style>
+<style rel="stylesheet/scss" lang="scss">
+  @import "./style/app";
+</style>

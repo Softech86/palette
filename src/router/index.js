@@ -7,8 +7,14 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+      {
+          path: '/',
+          redirect: {
+            name: 'Hello'
+          }
+      },
     {
-      path: '/',
+      path: '/rgb',
       name: 'RGB',
       component: RGB
     },
@@ -16,6 +22,6 @@ export default new Router({
       path: '/hello',
       name: 'Hello',
       component: Hello
-    }
+    },
   ]
 })

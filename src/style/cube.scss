@@ -22,7 +22,7 @@
       background-color: currentColor;
       top: 20px;
       left: 20px;
-      opacity: .3;
+      opacity: 1;
     }
   }
   .xz {
@@ -30,6 +30,7 @@
     transform-origin: top left;
   }
   .xy {
+    transform: rotateX(0deg);
   }
   .yz {
     transform: rotateY(-90deg);

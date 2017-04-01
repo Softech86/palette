@@ -1,21 +1,29 @@
 @import "variable";
 
+//TODO: 调整尺寸和高度
+
 .loading {
   width: 80%;
   position: relative;
-  $h: 10px;
+  $h: $sectord;
+  user-select: none;
 
   .bar {
-    position: absolute;
-    color: greenyellow;
+    position: relative;
     width: 100%;
     height: $h;
-    top: 50%;
-    margin: -$h/2 $sectorD/2;
+    //top: 50%;
+    margin: $sectorD / 2 - $h / 2 + $borderWeightLight 0;
+
+    //margin: -$h/2-$borderWeightLight $sectorD/2;
     border-radius: $h / 2;
-    border: 1px solid $borderColor;
-    box-shadow: 0 0 $h*2 currentColor inset;
+    border: $borderWeightLight solid $borderColor;
+    box-shadow:
+            $shadow $dark inset,
+            0 0 $h*3.5 currentColor inset
+            ;
     overflow: hidden;
+    background: white;
 
     .empty {
       position: absolute;
@@ -29,6 +37,15 @@
   .sector {
     user-select: none;
     cursor: move;
+    position: absolute;
+    top: 0;
+    margin-left: -$sectorD / 2;
+    transition: color .2s;
+    box-shadow: $shadow $dark;
+  }
+
+  .pressed {
+    color: white !important;
   }
 
 }

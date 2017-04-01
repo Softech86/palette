@@ -1,0 +1,73 @@
+@import './variable.scss';
+
+.rgb {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  left: 5%;
+  top: 10%;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background: rgba(255, 255, 255, .2);
+    margin: 100px 0;
+    border-radius: $borderRadius;
+    box-shadow: $shadow rgba(255, 255, 255, .2);
+
+    .text {
+      width: $lgFont * 2.5;
+      padding: $mdFont;
+      background: $dark;
+      border-radius: $borderRadius;
+      position: relative;
+      margin: 0 0 $lgFont 10%;
+      letter-spacing: 2px;
+      line-height: 1.2;
+      box-shadow: $shadow rgba(255, 255, 255, .2) inset;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        span {
+          font-size: $smFont;
+        }
+        div {
+          display: inline;
+          font-size: $lgFont;
+        }
+      }
+    }
+
+    .bar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .loading {
+        margin: 2px 0;
+      }
+    }
+  }
+  .display {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //560
+    width: 500px;
+    height: 500px;
+  }
+}
