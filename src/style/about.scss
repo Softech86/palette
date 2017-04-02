@@ -1,15 +1,18 @@
 @import './variable.scss';
 
-.hello {
-  $img: url('../../static/mac.jpg') no-repeat fixed center;
+.about {
+  $img: url('../../static/wall.jpg') no-repeat fixed center;
 
   flex-direction: column;
   font-size: $lgFont;
-  h1 {
+  h1, h2 {
     font-size: $lgFont * 3;
     display: inline;
     align-items: center;
     margin: 0 2%;
+  }
+  h2 {
+    font-size: $lgFont * 2;
   }
   span {
     margin-top: $lgFont;
@@ -18,8 +21,17 @@
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    & > div {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
 
     background: $img;
     background-size: cover;
@@ -44,10 +56,11 @@
     &:after {
       content: "";
       position: absolute;
-      width: 100%;
+      width: 200%;
       height: $lgFont * 3.5;
       background: white;
       opacity: .2;
+      transform: rotateZ(25deg);
     }
   }
 }

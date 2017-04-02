@@ -26,12 +26,9 @@
                       router: 'RGB'
                   },
                   {
-                      title: 'Components',
-                      tag: '组件'
-                  },
-                  {
                       title: 'About',
-                      tag: '关于'
+                      tag: '关于',
+                      router: 'About'
                   },
               ],
           }

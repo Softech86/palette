@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
-    <h1>Hi, there.</h1>
+    <div>
+      <span>This is</span>
+      <h1>Softech</h1>
+      <span>speaking.</span>
+    </div>
   </div>
 </template>
 

@@ -7,10 +7,24 @@
   width: 100%;
   height: 100%;
   position: relative;
+  opacity: 0;
 
   .tag-select {
     align-self: flex-end;
     right: 5%;
     top: 5%;
+    opacity: .8;
   }
+
+  & > div:last-child, & > div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  transition: opacity 2s;
 }
