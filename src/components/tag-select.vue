@@ -10,10 +10,12 @@
 </template>
 
 <script>
+//  页面导航组件
   export default {
       name: 'tag-select',
       data() {
           return {
+//              全部页面，router 为路由中对应的名称
               block: [
                   {
                       title: 'Hello, it\'s me',
@@ -35,6 +37,7 @@
       },
       computed: {
           select() {
+//              当前页面，通过 vue-router 获取
               return this.block.findIndex(b => b.router == this.$route.name)
           }
       },
@@ -42,6 +45,8 @@
           onTagClick(i, router) {
               if (router) {
                   this.select = i;
+//                  通过 vue-router 跳转到相应页面
+//                  click 发生后 router 改变，再改变 $route.name 改变 select 计算属性
                   this.$router.push({name: router});
               }
           }

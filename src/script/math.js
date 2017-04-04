@@ -2,6 +2,9 @@
  * Created by leobai on 2017/3/28.
  */
 
+// 跟数学计算有关的方法
+// 取消使用
+
 export function deg2rad(d) {
   return parseFloat(d) / 180 * Math.PI;
 }

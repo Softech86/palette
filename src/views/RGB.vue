@@ -58,13 +58,15 @@ export default {
             return this.color.g * .2 + this.color.r * .2 + 100;
         },
         mousePos() {
+//            调用 event bus 中的鼠标位置
             return Bus.mousePos;
         },
         deg() {
+//            实现立方体跟随鼠标旋转效果
             let center = {
                 x: this.mousePos.x - window.innerWidth / 2,
                 y: this.mousePos.y - window.innerHeight / 2
-            }
+            };
             return {
                 rx: 60 - center.y / 20,
                 ry: 0,
@@ -82,6 +84,7 @@ export default {
         }
     },
     methods: {
+//        进度条颜色
         loadingColor(c) {
             let color = {
                 r: '#d85b5b',

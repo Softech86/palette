@@ -22,7 +22,7 @@ export default {
                 x: e.clientX,
                 y: e.clientY
             };
-
+//            发送鼠标位置事件到 event bus
             Bus.$emit('mousePosition', mousePos);
         }
     },
@@ -30,13 +30,6 @@ export default {
       return {
           opacity: 0
       }
-    },
-    watch: {
-//        '$route' (to, from) {
-//            const toDepth = to.path.split('/').length
-//            const fromDepth = from.path.split('/').length
-//            this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
-//        }
     },
     mounted() {
         setTimeout(()=>{this.opacity = 1;}, 0);
