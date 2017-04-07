@@ -1,66 +1,101 @@
 @import './variable.scss';
+@import "math.scss";
 
 .about {
   $img: url('../../static/wall.jpg') no-repeat fixed center;
 
   flex-direction: column;
   font-size: $lgFont;
-  h1, h2 {
-    font-size: $lgFont * 3;
-    display: inline;
-    align-items: center;
-    margin: 0 2%;
-  }
-  h2 {
-    font-size: $lgFont * 2;
-  }
-  span {
-    margin-top: $lgFont;
-  }
-  & > div {
+
+  //background: $img;
+  //background-size: cover;
+  //background-origin: border-box;
+  //-webkit-background-clip: text;
+  //-webkit-text-fill-color: transparent;
+  filter: brightness(1.2);
+
+  .text, .job {
     width: 100%;
-    height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 
-    & > div {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+    h1, h2 {
+      font-size: $lgFont * 3;
+      display: inline;
       align-items: center;
+      margin: 0 2%;
     }
+    h2 {
+      font-size: $lgFont * 2;
+    }
+    span {
+      margin-top: $lgFont;
+    }
+  }
 
+  &:before {
     background: $img;
-    background-size: cover;
-    background-origin: border-box;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: brightness(1.8);
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: $lgFont * 3.5;
+    background: white;
+    opacity: .2;
+    transform: rotateZ(25deg);
+  }
 
 
-    &:before {
-      content: "";
+  .stage {
+    transform: rotateX(-3deg);
+    transform-style: preserve-3d;
+    z-index: 1;
+  }
+  .jobs {
+    //display: block;
+    position: relative;
+    width: 2000px;
+    margin: 92px auto;
+
+    transform-style: preserve-3d;
+    animation: dd 12s linear 0s infinite;
+    //&:hover {
+    //  animation-play-state:paused;
+    //}
+
+    .job {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      background: $img;
-      background-size: cover;
-      opacity: .1;
-      filter: brightness(.5);
+      text-align: center;
+      height: 80px;
+      transform-origin: top center;
+      backface-visibility: hidden;
+      &:before {
+        content: "";
+        background: transparent;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
     }
-    &:after {
-      content: "";
-      position: absolute;
-      width: 200%;
-      height: $lgFont * 3.5;
-      background: white;
-      opacity: .2;
-      transform: rotateZ(25deg);
+    @for $i from 0 through 5 {
+      .job:nth-child(#{$i}) {
+        transform: rotateY(72deg * ($i - 2)) translateZ(1400px);
+      }
+    }
+  }
+
+  @keyframes dd{
+    $d: 3deg;
+    @for $i from 0 through 5 {
+      #{$i * 20 - 1}% {
+        transform: rotateY(72deg * $i + $d);
+      }
+      #{$i * 20}% {
+        transform: rotateY(72deg * $i + 72deg - $d);
+      }
     }
   }
 }

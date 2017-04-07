@@ -1,20 +1,12 @@
 @import './variable.scss';
 
 .rgb {
-  flex-direction: row;
   $img: url('../../static/color.jpg') no-repeat fixed center;
 
+  flex-direction: row;
+
   &:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
     background: $img;
-    background-size: cover;
-    opacity: .1;
-    filter: brightness(.5);
   }
 
   .info {

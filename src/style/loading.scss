@@ -40,12 +40,13 @@
     position: absolute;
     top: 0;
     margin-left: -$sectorD / 2;
-    transition: color .2s;
+    transition: color .2s, box-shadow .2s;
     box-shadow: $shadow $dark;
   }
 
   .pressed {
     color: white !important;
+    box-shadow: 0 0 6px 0 $dark;
   }
 
 }

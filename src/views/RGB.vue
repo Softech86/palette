@@ -77,9 +77,9 @@ export default {
     data () {
         return {
             color: {
-                r: 160,
-                g: 128,
-                b: 128
+                r: 180,
+                g: 160,
+                b: 140
             },
         }
     },

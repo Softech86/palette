@@ -10,8 +10,8 @@
 6 silly lifecycle palette@1.0.0~predev: no script for predev, continuing
 7 info lifecycle palette@1.0.0~dev: palette@1.0.0
 8 verbose lifecycle palette@1.0.0~dev: unsafe-perm in lifecycle true
-9 verbose lifecycle palette@1.0.0~dev: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/leobai/Desktop/palette/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-10 verbose lifecycle palette@1.0.0~dev: CWD: /Users/leobai/Desktop/palette
+9 verbose lifecycle palette@1.0.0~dev: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/leobai/Code/palette/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+10 verbose lifecycle palette@1.0.0~dev: CWD: /Users/leobai/Code/palette
 11 silly lifecycle palette@1.0.0~dev: Args: [ '-c', 'node build/dev-server.js' ]
 12 silly lifecycle palette@1.0.0~dev: Returned: code: 1  signal: null
 13 info lifecycle palette@1.0.0~dev: Failed to exec dev script
@@ -26,7 +26,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:899:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid palette@1.0.0
-16 verbose cwd /Users/leobai/Desktop/palette
+16 verbose cwd /Users/leobai/Code/palette
 17 error Darwin 16.4.0
 18 error argv "/usr/local/Cellar/node/7.7.4/bin/node" "/usr/local/bin/npm" "run" "dev"
 19 error node v7.7.4
